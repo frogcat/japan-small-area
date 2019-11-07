@@ -56,29 +56,29 @@
 
 ## FeatureCollection
 
-- ルートは FeatureCollection です
-- features に Feature の配列を保持します
+- ルートは `FeatureCollection` です
+- `features` に `Feature` の配列を保持します
 
 ## Feature
 
-2015年の国勢調査における小地域に対応する Feature です
+2015年の国勢調査における小地域に対応する `Feature` です
 
 ### geometry
 
-- Polygon または MultiPolygon です
+- `Polygon` または `MultiPolygon` です
 - サイズ抑制のために [@turf/simplify](https://www.npmjs.com/package/@turf/simplify) で処理されています
 
 ### properties
 
 以下のプロパティを保持しています
 
-- population : 2015年の国勢調査における小地域の人口 (optional)
-- households : 2015年の国勢調査における小地域の世帯数 (optional)
-- label :  2015年の国勢調査における小地域の名称
-- parent :  この小地域の所属する自治体の地方公共団体コード(URI)
-- fullname : この小地域のフルネーム(都道府県・郡・市区町村・区・小地域名を / で連結したもの)
+- `population` : 2015年の国勢調査における小地域の人口 (optional)
+- `households` : 2015年の国勢調査における小地域の世帯数 (optional)
+- `label` :  2015年の国勢調査における小地域の名称
+- `parent` :  この小地域の所属する自治体の地方公共団体コード(URI)
+- `fullname` : この小地域のフルネーム(都道府県・郡・市区町村・区・小地域名を / で連結したもの)
 
-また Feature 直下の id プロパティには2015年国勢調査小地域コード(URI)が設定されています。
+また `Feature` 直下の `id` プロパティには2015年国勢調査小地域コード(URI)が設定されています。
 
 # Build
 
