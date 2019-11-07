@@ -14,53 +14,53 @@
   <div id="map" style="position:absolute;top:0;left:0;bottom:0;right:0;"></div>
   <div style="position:absolute;top:10px;right:10px;width:auto;height:auto;z-index:2000;">
     <select id="code">
-      <option>01</option>
-      <option>02</option>
-      <option>03</option>
-      <option>04</option>
-      <option>05</option>
-      <option>06</option>
-      <option>07</option>
-      <option>08</option>
-      <option>09</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-      <option>13</option>
-      <option selected>14</option>
-      <option>15</option>
-      <option>16</option>
-      <option>17</option>
-      <option>18</option>
-      <option>19</option>
-      <option>20</option>
-      <option>21</option>
-      <option>22</option>
-      <option>23</option>
-      <option>24</option>
-      <option>25</option>
-      <option>26</option>
-      <option>27</option>
-      <option>28</option>
-      <option>29</option>
-      <option>30</option>
-      <option>31</option>
-      <option>32</option>
-      <option>33</option>
-      <option>34</option>
-      <option>35</option>
-      <option>36</option>
-      <option>37</option>
-      <option>38</option>
-      <option>39</option>
-      <option>40</option>
-      <option>41</option>
-      <option>42</option>
-      <option>43</option>
-      <option>44</option>
-      <option>45</option>
-      <option>46</option>
-      <option>47</option>
+      <option>01北海道</option>
+      <option>02青森県</option>
+      <option>03岩手県</option>
+      <option>04宮城県</option>
+      <option>05秋田県</option>
+      <option>06山形県</option>
+      <option>07福島県</option>
+      <option>08茨城県</option>
+      <option>09栃木県</option>
+      <option>10群馬県</option>
+      <option>11埼玉県</option>
+      <option>12千葉県</option>
+      <option>13東京都</option>
+      <option selected>14神奈川県</option>
+      <option>15新潟県</option>
+      <option>16富山県</option>
+      <option>17石川県</option>
+      <option>18福井県</option>
+      <option>19山梨県</option>
+      <option>20長野県</option>
+      <option>21岐阜県</option>
+      <option>22静岡県</option>
+      <option>23愛知県</option>
+      <option>24三重県</option>
+      <option>25滋賀県</option>
+      <option>26京都府</option>
+      <option>27大阪府</option>
+      <option>28兵庫県</option>
+      <option>29奈良県</option>
+      <option>30和歌山県</option>
+      <option>31鳥取県</option>
+      <option>32島根県</option>
+      <option>33岡山県</option>
+      <option>34広島県</option>
+      <option>35山口県</option>
+      <option>36徳島県</option>
+      <option>37香川県</option>
+      <option>38愛媛県</option>
+      <option>39高知県</option>
+      <option>40福岡県</option>
+      <option>41佐賀県</option>
+      <option>42長崎県</option>
+      <option>43熊本県</option>
+      <option>44大分県</option>
+      <option>45宮崎県</option>
+      <option>46鹿児島県</option>
+      <option>47沖縄県</option>
     </select>
   </div>
   <script>
@@ -80,7 +80,7 @@
     }).addTo(map);
 
     $("#code").change(function() {
-      const code = $(this).val();
+      const code = $(this).val().substr(0, 2);
       container.clearLayers();
       fetch(code + ".json").then(a => a.json()).then(json => {
         L.geoJson(json, {
