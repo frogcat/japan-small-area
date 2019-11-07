@@ -13,9 +13,9 @@
 
 # Files
 
-- [docs](https://github.com/frogcat/japan-small-area/tree/master/docs) フォルダに収録しています
-- `docs/01.json` ～ `docs/47.json` の 47ファイルです
-- 都道府県ごとに作成されています
+- GeoJSON ファイルの実体は [docs](https://github.com/frogcat/japan-small-area/tree/master/docs) フォルダに収録しています
+- 都道府県ごとに作成された `docs/01.json` ～ `docs/47.json` の 47ファイルです
+- <https://frogcat.github.io/japan-small-area/01.json> ～ <https://frogcat.github.io/japan-small-area/47.json> から直接取得することもできます
 
 # Structure
 
