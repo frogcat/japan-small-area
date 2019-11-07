@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>japan-small-area</title>
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+  <script src="https://zeptojs.com/zepto.min.js"></script>
+</head>
+
+<body>
+  <div id="map" style="position:absolute;top:0;left:0;bottom:0;right:0;"></div>
+  <div style="position:absolute;top:10px;right:10px;width:auto;height:auto;z-index:2000;">
+    <select id="code">
+      <option>01</option>
+      <option>02</option>
+      <option>03</option>
+      <option>04</option>
+      <option>05</option>
+      <option>06</option>
+      <option>07</option>
+      <option>08</option>
+      <option>09</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>13</option>
+      <option selected>14</option>
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+      <option>20</option>
+      <option>21</option>
+      <option>22</option>
+      <option>23</option>
+      <option>24</option>
+      <option>25</option>
+      <option>26</option>
+      <option>27</option>
+      <option>28</option>
+      <option>29</option>
+      <option>30</option>
+      <option>31</option>
+      <option>32</option>
+      <option>33</option>
+      <option>34</option>
+      <option>35</option>
+      <option>36</option>
+      <option>37</option>
+      <option>38</option>
+      <option>39</option>
+      <option>40</option>
+      <option>41</option>
+      <option>42</option>
+      <option>43</option>
+      <option>44</option>
+      <option>45</option>
+      <option>46</option>
+      <option>47</option>
+    </select>
+  </div>
+  <script>
+    const map = L.map("map", {
+      center: [38, 138],
+      zoom: 5,
+      preferCanvas: true
+    });
+
+    map.attributionControl.addAttribution("<a href='http://data.e-stat.go.jp/lodw/'>e-Stat 統計LOD</a> のデータを加工して作成");
+    L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+      attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html'>地理院タイル</a>"
+    }).addTo(map);
+
+    const container = L.featureGroup([]).on("layeradd", function() {
+      map.fitBounds(this.getBounds());
+    }).addTo(map);
+
+    $("#code").change(function() {
+      const code = $(this).val();
+      container.clearLayers();
+      fetch(code + ".json").then(a => a.json()).then(json => {
+        L.geoJson(json, {
+          style: function(feature) {
+            const flag = (feature.properties.households === undefined ? 0 : 1) +
+              (feature.properties.population === undefined ? 0 : 2);
+            return {
+              weight: 1,
+              color: ["#f00", "#0c0", "#0c0", "#0c0"][flag]
+            };
+          },
+          onEachFeature: function(feature, layer) {
+            layer.bindTooltip(JSON.stringify(feature.properties));
+          }
+        }).addTo(container);
+      });
+    }).change();
+  </script>
+</body>
+
+</html>

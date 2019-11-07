@@ -1,0 +1,26 @@
+{
+  "name": "japan-small-area",
+  "version": "1.0.0",
+  "description": "japan-small-area",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frogcat/japan-small-area.git"
+  },
+  "keywords": [
+    "geojson"
+  ],
+  "author": "frogcat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frogcat/japan-small-area/issues"
+  },
+  "homepage": "https://github.com/frogcat/japan-small-area#readme",
+  "dependencies": {
+    "@turf/simplify": "^5.1.5",
+    "wellknown": "^0.5.0"
+  }
+}
