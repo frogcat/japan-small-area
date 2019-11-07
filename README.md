@@ -2,14 +2,20 @@
 
 日本国内の小地域ポリゴンを GeoJSON として 整備したものです。
 
-# Source
+# Data source
 
-[e-Stat 統計LOD](https://data.e-stat.go.jp/lodw/) の SPARQL Endpoint から取得したデータを使用しています。
+[e-Stat 統計LOD](https://data.e-stat.go.jp/lodw/) の SPARQL Endpoint から取得した
 2015年の国勢調査のデータを使用しています。
+
+# Demo
+
+- <https://frogcat.github.io/japan-small-area/>
 
 # Files
 
-`docs/01.json` ～ `docs/47.json` の 47ファイルです。都道府県ごとに作成されています。
+- [docs](https://github.com/frogcat/japan-small-area/tree/master/docs) フォルダに収録しています
+- `docs/01.json` ～ `docs/47.json` の 47ファイルです
+- 都道府県ごとに作成されています
 
 # Structure
 
